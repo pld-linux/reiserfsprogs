@@ -9,6 +9,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
+# Source0-md5:	b73e3676b0dad23960f5013dad511f63
 URL:		http://www.reiserfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
