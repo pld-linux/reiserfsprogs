@@ -11,6 +11,9 @@ Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
 URL:		http://www.reiserfs.org/
 Obsoletes:	reiserfs-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+%if %{?BOOT:1}%{!?BOOT:0}
+BuildRequires:	glibc-static
+%endif
 
 %define		_sbindir	/sbin
 
@@ -24,16 +27,38 @@ Pakiet zawiera programy do tworzenia (mkreiserfs), sprawdzania i
 naprawiania b³êdów (reiserfsck) oraz zmiany wielko¶ci
 (resize_reiserfs) systemu plików ReiserFS.
 
+%if %{?BOOT:1}%{!?BOOT:0}
+%package BOOT
+Summary:	%{name} for bootdisk
+Group:		Applications/System
+%description BOOT
+%endif
+
 %prep
 %setup -q
 
 %build
-%configure
 
+%if %{?BOOT:1}%{!?BOOT:0}
+%configure
+%{__make} LDFLAGS="-static -s"
+mv -f mkreiserfs/mkreiserfs mkreiserfs-BOOT
+%{__make} distclean
+%endif
+
+%configure
 %{__make} all
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
+%if %{?BOOT:1}%{!?BOOT:0}
+install -d $RPM_BUILD_ROOT/usr/lib/bootdisk/sbin
+for i in *-BOOT; do 
+  install -s $i $RPM_BUILD_ROOT/usr/lib/bootdisk/sbin/`basename $i -BOOT`
+done
+%endif
+
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 
 %{__make} install \
@@ -52,3 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.gz
 %attr(755, root, root) %{_sbindir}
 %{_mandir}/man*/*
+
+%if %{?BOOT:1}%{!?BOOT:0}
+%files BOOT
+%defattr(644,root,root,755)
+%attr(755,root,root) /usr/lib/bootdisk/sbin/*
+%endif
