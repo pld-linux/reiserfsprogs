@@ -59,8 +59,8 @@ arquivos ReiserFS.
 %build
 rm -f missing
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 
 %configure
 %{__make} LDFLAGS="%{rpmldflags}" all
