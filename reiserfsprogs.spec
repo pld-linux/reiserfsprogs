@@ -13,9 +13,6 @@ URL:		http://www.reiserfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-%if %{?BOOT:1}%{!?BOOT:0}
-BuildRequires:	glibc-static
-%endif
 Obsoletes:	reiserfs-utils
 
 %define		_sbindir	/sbin
@@ -34,16 +31,6 @@ naprawiania b³êdów (reiserfsck) oraz zmiany wielko¶ci
 Este pacote contém os utilitários para manipulação do sistema de
 arquivos ReiserFS.
 
-%package BOOT
-Summary:	%{name} for bootdisk
-Group:		Applications/System
-
-%description BOOT
-%{name} for bootdisk.
-
-%description BOOT -l pl
-%{name} dla bootkietki.
-
 %prep
 %setup -q
 %patch0 -p1
@@ -54,25 +41,12 @@ rm -f missing
 aclocal
 autoconf
 automake -a -c
-%if %{?BOOT:1}%{!?BOOT:0}
-%configure
-%{__make} LDFLAGS="-static -s"
-mv -f mkreiserfs/mkreiserfs mkreiserfs-BOOT
-%{__make} distclean
-%endif
 
 %configure
-%{__make} all
+%{__make} LDFLAGS="%{rpmldflags}" all
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%if %{?BOOT:1}%{!?BOOT:0}
-install -d $RPM_BUILD_ROOT%{_libdir}/bootdisk%{_sbindir}
-for i in *-BOOT; do
-install $i $RPM_BUILD_ROOT%{_libdir}/bootdisk%{_sbindir}/`basename $i -BOOT`
-done
-%endif
 
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 
@@ -92,9 +66,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.gz
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man*/*
-
-%if %{?BOOT:1}%{!?BOOT:0}
-%files BOOT
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/bootdisk%{_sbindir}/*
-%endif
