@@ -10,6 +10,7 @@ Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
 Patch0:		%{name}-mkstemp.patch
+Patch1:		%{name}-endian-safe.patch
 URL:		http://www.reiserfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -47,6 +48,7 @@ Group(pl):	Aplikacje/System
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
