@@ -64,14 +64,12 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-
 %configure
 %{__make} all \
 	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 
 %{__make} install \
