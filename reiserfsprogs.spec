@@ -5,7 +5,8 @@ Summary(uk):	Утил╕ти для роботы з файловою системою ReiserFS
 Summary(ru):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
 Version:	3.6.11
-Release:	1
+Release:	2
+Epoch:		1
 License:	GPL v2
 Group:		Applications/System
 #Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
@@ -65,7 +66,8 @@ rm -f missing
 %{__automake}
 
 %configure
-%{__make} LDFLAGS="%{rpmldflags}" all
+%{__make} all \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
