@@ -9,14 +9,14 @@ Release:	0.1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
-#Source0:	%{name}-%{version}.tar.gz
 Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
 # Source0-md5:	7b1f3f237c2164f3f723c15813b17d53
+Patch0:		%{name}-unaligned.patch
 URL:		http://www.namesys.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	reiserfs-utils
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin
 
@@ -56,9 +56,9 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
