@@ -1,0 +1,5 @@
+- release 2,
+- merge mkstemp patch from RH,
+- spec adapterized,
+- changed License to GPL,
+- regenerate ac/am files.
