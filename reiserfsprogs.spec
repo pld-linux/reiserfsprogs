@@ -6,8 +6,6 @@ Version:	3.x.0j
 Release:	4
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
 Patch0:		%{name}-mkstemp.patch
 Patch1:		%{name}-endian-safe.patch
@@ -39,8 +37,6 @@ arquivos ReiserFS.
 %package BOOT
 Summary:	%{name} for bootdisk
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 
 %description BOOT
 %{name} for bootdisk.
