@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia dla systemu plików Reiser
 Summary(pt_BR):	Este pacote contém os utilitários para manipulação do sistema de arquivos ReiserFS
 Name:		reiserfsprogs
 Version:	3.x.0j
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
