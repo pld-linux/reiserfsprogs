@@ -1,10 +1,12 @@
 Summary:	Utilities belonging to the Reiser filesystem
 Summary(pl):	NarzЙdzia dla systemu plikСw Reiser
 Summary(pt_BR):	Este pacote contИm os utilitАrios para manipulaГЦo do sistema de arquivos ReiserFS
+Summary(uk):	Утил╕ти для роботы з файловою системою ReiserFS
+Summary(ru):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
 Version:	3.x.1b
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
 URL:		http://www.reiserfs.org/
@@ -16,9 +18,23 @@ Obsoletes:	reiserfs-utils
 %define		_sbindir	/sbin
 
 %description
-The reiserfsprogs package contains programs for creating (mkreiserfs),
-checking and correcting any inconsistencies (reiserfsck) and resizing
-(resize_reiserfs) of a reiserfs filesystem.
+Reiserfs is a file system using a plug-in based object oriented
+variant on classical balanced tree algorithms. The results when
+compared to the ext2fs conventional block allocation based file system
+running under the same operating system and employing the same
+buffering code suggest that these algorithms are overall more
+efficient, and are becoming more so every passing month. Loosely
+speaking, every month we find another performance cranny that needs
+work, and we fix it, and every month we find some way of improving our
+overall general usage performance. The improvement in small file space
+and time performance suggests that we may now revisit a common OS
+design assumption that one should aggregate small objects using layers
+above the file system layer. Being more effective at small files DOES
+NOT make us less effective for other files, this is a general purpose
+FS, and our overall traditional FS usage performance is high enough to
+establish that. Reiserfs has a commitment to opening up the FS design
+to contributions, and we are now now adding plug-ins so that you can
+create your own types of directories and files.
 
 %description -l pl
 Pakiet zawiera programy do tworzenia (mkreiserfs), sprawdzania i
@@ -29,6 +45,11 @@ naprawiania bЁЙdСw (reiserfsck) oraz zmiany wielko╤ci
 Este pacote contИm os utilitАrios para manipulaГЦo do sistema de
 arquivos ReiserFS.
 
+%description -l ru
+Набор утилит для работы с файловой системой ReiserFS.
+
+%description -l uk
+Наб╕р утил╕т для роботи з файловою системою ReiserFS.
 %prep
 %setup -q
 
