@@ -1,5 +1,4 @@
 Summary:	Utilities belonging to the Reiser filesystem
-Summary(es):	This package contains ReiserFS filesystem's utilities
 Summary(pl):	Narzêdzia dla systemu plików Reiser
 Summary(pt_BR):	Este pacote contém os utilitários para manipulação do sistema de arquivos ReiserFS
 Name:		reiserfsprogs
@@ -26,12 +25,6 @@ Obsoletes:	reiserfs-utils
 The reiserfsprogs package contains programs for creating (mkreiserfs),
 checking and correcting any inconsistencies (reiserfsck) and resizing
 (resize_reiserfs) of a reiserfs filesystem.
-
-%description -l es
-This package contains utilities to manage ReiserFS filesystems. It
-includes mkreiserfs, reiserfsck and their manpages. Also included but
-not really intended for general use are resize_reiserfs, dumpreiserfs
-and unpackreiserfs.
 
 %description -l pl
 Pakiet zawiera programy do tworzenia (mkreiserfs), sprawdzania i
