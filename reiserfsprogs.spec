@@ -9,6 +9,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
+Patch0:		%{name}-ac25x.patch
 URL:		http://www.reiserfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -50,8 +51,10 @@ arquivos ReiserFS.
 
 %description -l uk
 Наб╕р утил╕т для роботи з файловою системою ReiserFS.
+
 %prep
 %setup -q
+%patch -p1
 
 %build
 rm -f missing
@@ -70,8 +73,8 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -s reiserfsck $RPM_BUILD_ROOT%{_sbindir}/fsck.reiserfs
-ln -s mkreiserfs $RPM_BUILD_ROOT%{_sbindir}/mkfs.reiserfs
+ln -sf reiserfsck $RPM_BUILD_ROOT%{_sbindir}/fsck.reiserfs
+ln -sf mkreiserfs $RPM_BUILD_ROOT%{_sbindir}/mkfs.reiserfs
 
 gzip -9nf README
 

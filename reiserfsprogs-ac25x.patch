@@ -1,0 +1,11 @@
+--- reiserfsprogs-3.x.1b/configure.in.orig	Mon Feb 25 19:32:41 2002
++++ reiserfsprogs-3.x.1b/configure.in	Sat May  4 22:46:21 2002
+@@ -48,7 +48,7 @@
+ [  --enable-io-failure-emulation      Never use that. It is for debugging only],
+ [ if test "$enableval" = "yes" ; then
+     echo -e "\nCarefull! IO failure emulation is ON\n"
+-    AC_DEFINE(IO_FAILURE_EMULATION)
++    AC_DEFINE(IO_FAILURE_EMULATION,,[it gets set when configure --enable-io-failure-emulation])
+   fi
+ ])
+ 
