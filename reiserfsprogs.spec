@@ -4,12 +4,11 @@ Summary(pt_BR):	Este pacote contИm os utilitАrios para manipulaГЦo do sistema de
 Summary(uk):	Утил╕ти для роботы з файловою системою ReiserFS
 Summary(ru):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
-Version:	3.x.1b
+Version:	3.6.4
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
-Patch0:		%{name}-ac25x.patch
 URL:		http://www.reiserfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -54,7 +53,6 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 rm -f missing
