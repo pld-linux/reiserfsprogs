@@ -4,14 +4,14 @@ Summary(pt_BR):	Este pacote contИm os utilitАrios para manipulaГЦo do sistema de
 Summary(uk):	Утил╕ти для роботы з файловою системою ReiserFS
 Summary(ru):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
-Version:	3.6.12
-Release:	2
+Version:	3.6.13
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
 #Source0:	%{name}-%{version}.tar.gz
 Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
-# Source0-md5:	8b7ea8ac43626aaf8d1deec2863732ba
+# Source0-md5:	df231047d8df4fb7917b96938947671b
 Patch0:		%{name}-acfix.patch
 URL:		http://www.namesys.com/
 BuildRequires:	autoconf
