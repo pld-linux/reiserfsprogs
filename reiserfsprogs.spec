@@ -46,7 +46,7 @@ mv -f mkreiserfs/mkreiserfs mkreiserfs-BOOT
 %{__make} distclean
 %endif
 
-%configure
+%configure2_13
 %{__make} all
 
 %install
