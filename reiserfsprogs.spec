@@ -2,13 +2,11 @@ Summary:	Utilities belonging to the Reiser filesystem
 Summary(pl):	Narzêdzia dla systemu plików Reiser
 Summary(pt_BR):	Este pacote contém os utilitários para manipulação do sistema de arquivos ReiserFS
 Name:		reiserfsprogs
-Version:	3.x.0j
-Release:	5
+Version:	3.x.1b
+Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.reiserfs.org/pub/reiserfsprogs/%{name}-%{version}.tar.gz
-Patch0:		%{name}-mkstemp.patch
-Patch1:		%{name}-endian-safe.patch
 URL:		http://www.reiserfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -33,8 +31,6 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 rm -f missing
