@@ -45,6 +45,9 @@ Group(pl):	Aplikacje/System
 %description BOOT
 %{name} for bootdisk.
 
+%description BOOT -l pl
+%{name} dla bootkietki.
+
 %prep
 %setup -q
 %patch0 -p1
