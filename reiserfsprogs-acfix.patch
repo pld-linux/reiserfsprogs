@@ -1,13 +1,7 @@
-diff -Nru reiserfsprogs-3.6.9.orig/configure.in reiserfsprogs-3.6.9/configure.in
---- reiserfsprogs-3.6.9.orig/configure.in	2003-07-16 16:39:30.000000000 +0200
-+++ reiserfsprogs-3.6.9/configure.in	2003-07-17 11:29:58.243520176 +0200
-@@ -99,12 +99,12 @@
- 	    count++;
- 	} else {
- 	    if (!start)
--		fprintf(fout, "\t\\\" "\n");
-+		fprintf(fout, "\t\\\" \\\"\n");
- 	    else if (start == 1)
+diff -burN reiserfsprogs-3.6.12.orig/configure.in reiserfsprogs-3.6.12/configure.in
+--- reiserfsprogs-3.6.12.orig/configure.in	2004-02-14 23:28:10.492234736 +0100
++++ reiserfsprogs-3.6.12/configure.in	2004-02-14 23:29:57.098028192 +0100
+@@ -103,7 +103,7 @@
  		fprintf(fout, ",\n\n");
  	    
  	    line[strlen(line) - 1] = 0;
