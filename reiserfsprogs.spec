@@ -8,7 +8,8 @@ Version:	3.6.11
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
+#Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	f587c888de663603d4f6fa6cfdd82741
 Patch0:		%{name}-acfix.patch
 URL:		http://www.namesys.com/
