@@ -62,7 +62,11 @@ arquivos ReiserFS.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+%ifarch ppc ppc64 sparc sparcv9 sparc64
+	ac_cv_header_asm_unaligned=no
+%endif
+
 %{__make} all \
 	LDFLAGS="%{rpmldflags}"
 
