@@ -1,3 +1,4 @@
+# NOTE: conflict with progsreiserfs (fsck.reiserfs, mkfs.reiserfs, resizefs.reiserfs)
 Summary:	Utilities belonging to the Reiser filesystem
 Summary(pl):	Narzêdzia dla systemu plików Reiser
 Summary(pt_BR):	Este pacote contém os utilitários para manipulação do sistema de arquivos ReiserFS
