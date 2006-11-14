@@ -4,17 +4,17 @@ Summary(pt_BR):	Este pacote contém os utilitários para manipulação do sistema de
 Summary(uk):	õÔÉÌ¦ÔÉ ÄÌÑ ÒÏÂÏÔÙ Ú ÆÁÊÌÏ×ÏÀ ÓÉÓÔÅÍÏÀ ReiserFS
 Summary(ru):	õÔÉÌÉÔÙ ÄÌÑ ÒÁÂÏÔÙ Ó ÆÁÊÌÏ×ÏÊ ÓÉÓÔÅÍÏÊ ReiserFS
 Name:		reiserfsprogs
-Version:	3.6.19
-Release:	2
+Version:	3.6.20
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
-# Source0-md5:	b42cf15f6651c3ceff5cb84996c0d539
-Patch0:		%{name}-unaligned.patch
+# Source0-md5:	3b3392f59c5d302cf858bc4cf194b258
 URL:		http://www.namesys.com/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	libuuid-devel
 Obsoletes:	reiserfs-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -56,7 +56,6 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__aclocal}
@@ -83,4 +82,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man*/*
+%{_mandir}/man8/*
