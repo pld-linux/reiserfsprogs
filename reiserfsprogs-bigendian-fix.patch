@@ -1,0 +1,71 @@
+diff -Nur reiserfsprogs-3.6.20.orig/include/misc/swab.h reiserfsprogs-3.6.20.bigendian-fix/include/misc/swab.h
+--- reiserfsprogs-3.6.20.orig/include/misc/swab.h	2006-03-28 12:40:23.000000000 +0000
++++ reiserfsprogs-3.6.20.bigendian-fix/include/misc/swab.h	2006-11-15 02:44:59.000000000 +0000
+@@ -14,14 +14,19 @@
+                 (((__u16)(__x) & (__u16)0xff00U) >> 8) )); \
+ })
+ 
+-#define __swab32(x) \
+-({ \
+-        __u32 __x = (x); \
++#define __init_swab32(__x) \
++( \
+         ((__u32)( \
+                 (((__u32)(__x) & (__u32)0x000000ffUL) << 24) | \
+                 (((__u32)(__x) & (__u32)0x0000ff00UL) <<  8) | \
+                 (((__u32)(__x) & (__u32)0x00ff0000UL) >>  8) | \
+-                (((__u32)(__x) & (__u32)0xff000000UL) >> 24) )); \
++                (((__u32)(__x) & (__u32)0xff000000UL) >> 24) )) \
++)
++
++#define __swab32(x) \
++({ \
++        __u32 __x = (x); \
++ 	__init_swab32(__x); \
+ })
+ 
+ #define __swab64(x) \
+@@ -47,6 +52,7 @@
+ # define le32_to_cpu(val)                 (val)
+ # define cpu_to_le64(val)                 (val)
+ # define le64_to_cpu(val)                 (val)
++# define init_cpu_to_le32(val)            (val)
+ 
+ #elif defined(WORDS_BIGENDIAN)
+ 
+@@ -56,6 +62,7 @@
+ # define le32_to_cpu(val)                 __swab32(val)
+ # define cpu_to_le64(val)                 __swab64(val)
+ # define le64_to_cpu(val)                 __swab64(val)
++# define init_cpu_to_le32(val)            __init_swab32(val)
+ 
+ #else
+ # error "nuxi/pdp-endian archs are not supported"
+diff -Nur reiserfsprogs-3.6.20.orig/libreiserfs/key.c reiserfsprogs-3.6.20.bigendian-fix/libreiserfs/key.c
+--- reiserfsprogs-3.6.20.orig/libreiserfs/key.c	2006-03-28 12:40:23.000000000 +0000
++++ reiserfsprogs-3.6.20.bigendian-fix/libreiserfs/key.c	2006-11-15 02:45:25.000000000 +0000
+@@ -11,12 +11,12 @@
+ #include "misc/unaligned.h"
+ 
+ const reiserfs_key_t root_dir_key = 
+-	{cpu_to_le32(REISERFS_ROOT_PARENT_OBJECTID),
+-	 cpu_to_le32(REISERFS_ROOT_OBJECTID), 
++	{init_cpu_to_le32(REISERFS_ROOT_PARENT_OBJECTID),
++	 init_cpu_to_le32(REISERFS_ROOT_OBJECTID), 
+ 	 {{0, 0},}};
+ 
+ const reiserfs_key_t parent_root_dir_key = {
+-	0, cpu_to_le32(REISERFS_ROOT_PARENT_OBJECTID), 
++	0, init_cpu_to_le32(REISERFS_ROOT_PARENT_OBJECTID), 
+ 	{{0, 0},}};
+ 
+ reiserfs_key_t lost_found_dir_key = 
+@@ -45,7 +45,7 @@
+ # define set_key_type_v2(key,val)   (void)(key->u.k2_offset_v2.k_type = (val))
+ #elif __BYTE_ORDER == __BIG_ENDIAN
+ typedef union {
+-    struct offset_v2 offset_v2;
++    struct reiserfs_koff_v2 offset_v2;
+     __u64 linear;
+ } __attribute__ ((__packed__)) offset_v2_esafe_overlay;
+ 
