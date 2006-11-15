@@ -12,6 +12,7 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
 # Source0-md5:	3b3392f59c5d302cf858bc4cf194b258
+Patch0:		%{name}-bigendian-fix.patch
 URL:		http://www.namesys.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -57,6 +58,7 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__aclocal}
