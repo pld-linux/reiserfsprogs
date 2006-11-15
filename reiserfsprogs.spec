@@ -1,4 +1,3 @@
-# NOTE: conflict with progsreiserfs (fsck.reiserfs, mkfs.reiserfs, resizefs.reiserfs)
 Summary:	Utilities belonging to the Reiser filesystem
 Summary(pl):	Narzêdzia dla systemu plików Reiser
 Summary(pt_BR):	Este pacote contém os utilitários para manipulação do sistema de arquivos ReiserFS
@@ -18,6 +17,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libuuid-devel
 Obsoletes:	reiserfs-utils
+Conflicts:	progsreiserfs < 0.3.1-1.rc8.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin
