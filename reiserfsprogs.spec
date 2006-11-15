@@ -65,7 +65,7 @@ arquivos ReiserFS.
 %{__autoconf}
 %{__automake}
 %configure \
-%ifarch ppc ppc64 sparc sparcv9 sparc64
+%ifarch alpha ppc ppc64 sparc sparcv9 sparc64
 	ac_cv_header_asm_unaligned=no
 %endif
 
