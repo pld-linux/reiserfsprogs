@@ -1,8 +1,8 @@
 Summary:	Utilities belonging to the Reiser filesystem
-Summary(pl):	NarzЙdzia dla systemu plikСw Reiser
-Summary(pt_BR):	Este pacote contИm os utilitАrios para manipulaГЦo do sistema de arquivos ReiserFS
-Summary(uk):	Утил╕ти для роботы з файловою системою ReiserFS
-Summary(ru):	Утилиты для работы с файловой системой ReiserFS
+Summary(pl.UTF-8):   Narzд≥dzia dla systemu plikцЁw Reiser
+Summary(pt_BR.UTF-8):   Este pacote contц╘m os utilitц║rios para manipulaц╖цёo do sistema de arquivos ReiserFS
+Summary(uk.UTF-8):   пёя┌п╦п╩я√я┌п╦ п╢п╩я▐ я─п╬п╠п╬я┌я▀ п╥ я└п╟п╧п╩п╬п╡п╬я▌ я│п╦я│я┌п╣п╪п╬я▌ ReiserFS
+Summary(ru.UTF-8):   пёя┌п╦п╩п╦я┌я▀ п╢п╩я▐ я─п╟п╠п╬я┌я▀ я│ я└п╟п╧п╩п╬п╡п╬п╧ я│п╦я│я┌п╣п╪п╬п╧ ReiserFS
 Name:		reiserfsprogs
 Version:	3.6.20
 Release:	1
@@ -41,20 +41,20 @@ establish that. Reiserfs has a commitment to opening up the FS design
 to contributions, and we are now now adding plug-ins so that you can
 create your own types of directories and files.
 
-%description -l pl
+%description -l pl.UTF-8
 Pakiet zawiera programy do tworzenia (mkreiserfs), sprawdzania i
-naprawiania bЁЙdСw (reiserfsck) oraz zmiany wielko╤ci
-(resize_reiserfs) systemu plikСw ReiserFS.
+naprawiania bе┌д≥dцЁw (reiserfsck) oraz zmiany wielkoе⌡ci
+(resize_reiserfs) systemu plikцЁw ReiserFS.
 
-%description -l pt_BR
-Este pacote contИm os utilitАrios para manipulaГЦo do sistema de
+%description -l pt_BR.UTF-8
+Este pacote contц╘m os utilitц║rios para manipulaц╖цёo do sistema de
 arquivos ReiserFS.
 
-%description -l ru
-Набор утилит для работы с файловой системой ReiserFS.
+%description -l ru.UTF-8
+п²п╟п╠п╬я─ я┐я┌п╦п╩п╦я┌ п╢п╩я▐ я─п╟п╠п╬я┌я▀ я│ я└п╟п╧п╩п╬п╡п╬п╧ я│п╦я│я┌п╣п╪п╬п╧ ReiserFS.
 
-%description -l uk
-Наб╕р утил╕т для роботи з файловою системою ReiserFS.
+%description -l uk.UTF-8
+п²п╟п╠я√я─ я┐я┌п╦п╩я√я┌ п╢п╩я▐ я─п╬п╠п╬я┌п╦ п╥ я└п╟п╧п╩п╬п╡п╬я▌ я│п╦я│я┌п╣п╪п╬я▌ ReiserFS.
 
 %prep
 %setup -q
