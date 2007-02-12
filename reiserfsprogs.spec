@@ -1,8 +1,8 @@
 Summary:	Utilities belonging to the Reiser filesystem
-Summary(pl.UTF-8):   Narzędzia dla systemu plików Reiser
-Summary(pt_BR.UTF-8):   Este pacote contém os utilitários para manipulação do sistema de arquivos ReiserFS
-Summary(uk.UTF-8):   Утиліти для роботы з файловою системою ReiserFS
-Summary(ru.UTF-8):   Утилиты для работы с файловой системой ReiserFS
+Summary(pl.UTF-8):	Narzędzia dla systemu plików Reiser
+Summary(pt_BR.UTF-8):	Este pacote contém os utilitários para manipulação do sistema de arquivos ReiserFS
+Summary(uk.UTF-8):	Утиліти для роботы з файловою системою ReiserFS
+Summary(ru.UTF-8):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
 Version:	3.6.20
 Release:	1
