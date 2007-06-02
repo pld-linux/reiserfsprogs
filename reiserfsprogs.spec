@@ -76,7 +76,7 @@ arquivos ReiserFS.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 ln -sf reiserfsck $RPM_BUILD_ROOT%{_sbindir}/fsck.reiserfs
