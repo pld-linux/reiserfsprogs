@@ -5,7 +5,7 @@ Summary(uk.UTF-8):	Утиліти для роботы з файловою сис
 Summary(ru.UTF-8):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
 Version:	3.6.20
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
