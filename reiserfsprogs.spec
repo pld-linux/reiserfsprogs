@@ -16,6 +16,7 @@ URL:		http://www.namesys.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libuuid-devel
+BuildRequires:	sed >= 4.0
 Obsoletes:	reiserfs-utils
 Conflicts:	progsreiserfs < 0.3.1-1.rc8.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
