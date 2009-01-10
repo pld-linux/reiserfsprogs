@@ -11,7 +11,6 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.kernel.org/pub/linux/utils/fs/reiserfs/%{name}-%{version}.tar.gz
 # Source0-md5:	bc00c7c4e047902575dc4e1c64ab3ba4
-Patch0:		%{name}-bigendian-fix.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libuuid-devel
@@ -58,7 +57,6 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
-# %patch0 -p1
 
 # hack, otherwise configure failed
 sed -i -e 's#AM_ENABLE_SHARED##g' configure.in
