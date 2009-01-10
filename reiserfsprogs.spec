@@ -4,15 +4,14 @@ Summary(pt_BR.UTF-8):	Este pacote contém os utilitários para manipulação do 
 Summary(uk.UTF-8):	Утиліти для роботы з файловою системою ReiserFS
 Summary(ru.UTF-8):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
-Version:	3.6.20
-Release:	3
+Version:	3.6.21
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
-Source0:	ftp://ftp.namesys.com/pub/reiserfsprogs/%{name}-%{version}.tar.gz
-# Source0-md5:	3b3392f59c5d302cf858bc4cf194b258
+Source0:	http://www.kernel.org/pub/linux/utils/fs/reiserfs/%{name}-%{version}.tar.gz
+# Source0-md5:	bc00c7c4e047902575dc4e1c64ab3ba4
 Patch0:		%{name}-bigendian-fix.patch
-URL:		http://www.namesys.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libuuid-devel
@@ -59,7 +58,7 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
-%patch0 -p1
+# %patch0 -p1
 
 # hack, otherwise configure failed
 sed -i -e 's#AM_ENABLE_SHARED##g' configure.in
