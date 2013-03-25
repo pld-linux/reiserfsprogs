@@ -4,17 +4,21 @@ Summary(pt_BR.UTF-8):	Este pacote contém os utilitários para manipulação do 
 Summary(uk.UTF-8):	Утиліти для роботы з файловою системою ReiserFS
 Summary(ru.UTF-8):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
-Version:	3.6.21
+Version:	3.6.22
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://www.kernel.org/pub/linux/utils/fs/reiserfs/%{name}-%{version}.tar.gz
-# Source0-md5:	bc00c7c4e047902575dc4e1c64ab3ba4
+#Source0:	http://www.kernel.org/pub/linux/utils/fs/reiserfs/%{name}-%{version}.tar.gz
+Source0:	https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v%{version}/%{name}-%{version}.tar.xz
+Patch0:		%{name}-am.patch
+# Source0-md5:	91d2fdb5eeaa15c8afcc9e815179690d
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libuuid-devel
 BuildRequires:	sed >= 4.0
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Obsoletes:	reiserfs-utils
 Conflicts:	progsreiserfs < 0.3.1-1.rc8.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,6 +61,7 @@ arquivos ReiserFS.
 
 %prep
 %setup -q
+%patch0 -p1
 
 # hack, otherwise configure failed
 sed -i -e 's#AM_ENABLE_SHARED##g' configure.in
@@ -80,14 +85,21 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 %{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf reiserfsck $RPM_BUILD_ROOT%{_sbindir}/fsck.reiserfs
-ln -sf mkreiserfs $RPM_BUILD_ROOT%{_sbindir}/mkfs.reiserfs
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
-%attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man8/*
+%doc CREDITS ChangeLog README
+%attr(755,root,root) %{_sbindir}/debugreiserfs
+%attr(755,root,root) %{_sbindir}/fsck.reiserfs
+%attr(755,root,root) %{_sbindir}/mkfs.reiserfs
+%attr(755,root,root) %{_sbindir}/mkreiserfs
+%attr(755,root,root) %{_sbindir}/reiserfsck
+%attr(755,root,root) %{_sbindir}/reiserfstune
+%attr(755,root,root) %{_sbindir}/resize_reiserfs
+%{_mandir}/man8/debugreiserfs.8*
+%{_mandir}/man8/mkreiserfs.8*
+%{_mandir}/man8/reiserfsck.8*
+%{_mandir}/man8/reiserfstune.8*
+%{_mandir}/man8/resize_reiserfs.8*
