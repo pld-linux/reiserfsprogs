@@ -1,5 +1,5 @@
---- reiserfsprogs-3.6.22/configure.in.orig	2013-03-24 21:53:35.621086947 +0100
-+++ reiserfsprogs-3.6.22/configure.in	2013-03-24 21:55:40.414415247 +0100
+--- reiserfsprogs-3.6.22/configure.ac.orig	2013-03-24 21:53:35.621086947 +0100
++++ reiserfsprogs-3.6.22/configure.ac	2013-03-24 21:55:40.414415247 +0100
 @@ -12,7 +12,7 @@
  dnl We install in /sbin, the utils are to be available on boot
  dnl AC_PREFIX(/)

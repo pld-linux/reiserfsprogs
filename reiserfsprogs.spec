@@ -4,15 +4,15 @@ Summary(pt_BR.UTF-8):	Este pacote contém os utilitários para manipulação do 
 Summary(uk.UTF-8):	Утиліти для роботы з файловою системою ReiserFS
 Summary(ru.UTF-8):	Утилиты для работы с файловой системой ReiserFS
 Name:		reiserfsprogs
-Version:	3.6.22
+Version:	3.6.24
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
 #Source0:	http://www.kernel.org/pub/linux/utils/fs/reiserfs/%{name}-%{version}.tar.gz
 Source0:	https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	66787380fb418ff7d88a23e47cda7af6
 Patch0:		%{name}-am.patch
-# Source0-md5:	91d2fdb5eeaa15c8afcc9e815179690d
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libuuid-devel
@@ -64,7 +64,7 @@ arquivos ReiserFS.
 %patch0 -p1
 
 # hack, otherwise configure failed
-sed -i -e 's#AM_ENABLE_SHARED##g' configure.in
+sed -i -e 's#AM_ENABLE_SHARED##g' configure.ac
 
 %build
 %{__aclocal}
