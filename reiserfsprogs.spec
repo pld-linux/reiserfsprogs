@@ -13,10 +13,10 @@ Group:		Applications/System
 Source0:	https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v%{version}/%{name}-%{version}.tar.xz
 # Source0-md5:	66787380fb418ff7d88a23e47cda7af6
 Patch0:		%{name}-am.patch
+URL:		https://reiser4.wiki.kernel.org/index.php/Reiserfsprogs
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	libuuid-devel
-BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Obsoletes:	reiserfs-utils
@@ -63,20 +63,14 @@ arquivos ReiserFS.
 %setup -q
 %patch0 -p1
 
-# hack, otherwise configure failed
-sed -i -e 's#AM_ENABLE_SHARED##g' configure.ac
-
 %build
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-%ifarch alpha ppc ppc64 sparc sparcv9 sparc64
-	ac_cv_header_asm_unaligned=no
-%endif
+	--disable-silent-rules
 
-%{__make} all \
-	LDFLAGS="%{rpmldflags}"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -91,6 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CREDITS ChangeLog README
+%attr(755,root,root) %{_sbindir}/debugfs.reiserfs
 %attr(755,root,root) %{_sbindir}/debugreiserfs
 %attr(755,root,root) %{_sbindir}/fsck.reiserfs
 %attr(755,root,root) %{_sbindir}/mkfs.reiserfs
@@ -98,8 +93,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/reiserfsck
 %attr(755,root,root) %{_sbindir}/reiserfstune
 %attr(755,root,root) %{_sbindir}/resize_reiserfs
+%attr(755,root,root) %{_sbindir}/tunefs.reiserfs
+%{_mandir}/man8/debugfs.reiserfs.8*
 %{_mandir}/man8/debugreiserfs.8*
+%{_mandir}/man8/fsck.reiserfs.8*
+%{_mandir}/man8/mkfs.reiserfs.8*
 %{_mandir}/man8/mkreiserfs.8*
 %{_mandir}/man8/reiserfsck.8*
 %{_mandir}/man8/reiserfstune.8*
 %{_mandir}/man8/resize_reiserfs.8*
+%{_mandir}/man8/tunefs.reiserfs.8*
