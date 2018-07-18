@@ -21,7 +21,7 @@ BuildRequires:	libtool
 BuildRequires:	libuuid-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	%{name}-libs = %{version}-%{release}
+Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Obsoletes:	reiserfs-utils
 Conflicts:	progsreiserfs < 0.3.1-1.rc8.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -77,7 +77,7 @@ Biblioteka ReiserFS Core.
 Summary:	Header files for ReiserFS Core library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki ReiserFS Core
 Group:		Development/Libraries
-Requires:	%{name}-libs = %{version}-%{release}
+Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	libcom_err-devel
 
 %description devel
@@ -90,7 +90,7 @@ Pliki nagłówkowe biblioteki ReiserFS Core.
 Summary:	Static ReiserFS Core library
 Summary(pl.UTF-8):	Biblioteka statyczna ReiserFS Core
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static ReiserFS Core library.
