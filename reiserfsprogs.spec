@@ -13,6 +13,7 @@ Group:		Applications/System
 Source0:	https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v%{version}/%{name}-%{version}.tar.xz
 # Source0-md5:	90c139542725efc6da3a6b1709695395
 Patch0:		%{name}-am.patch
+Patch1:		glibc.patch
 URL:		https://reiser4.wiki.kernel.org/index.php/Reiserfsprogs
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11.1
@@ -101,6 +102,7 @@ Biblioteka statyczna ReiserFS Core.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}

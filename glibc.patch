@@ -1,0 +1,16 @@
+Description: Fix compilation with newer glibc
+Fixes compilation with newer glibc.
+If _XOPEN_SOURCE is defined _DEFAULT_SOURCE needs to be defined explicit
+to have the definition of loff_t.
+Author: Felix Zielcke <fzielcke@z-51.de>
+Bug-Debian: https://bugs.debian.org/916166
+Last-Update: 2018-12-12
+
+--- reiserfsprogs-3.6.27.orig/lib/parse_time.c
++++ reiserfsprogs-3.6.27/lib/parse_time.c
+@@ -1,4 +1,5 @@
+ #define _XOPEN_SOURCE
++#define _DEFAULT_SOURCE
+ #ifdef HAVE_CONFIG_H
+ #include <config.h>
+ #endif
